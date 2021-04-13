@@ -27,7 +27,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 ```bash
   $ mix ecto.create
 ```
-### Creating the first route
+### Creating the first route (video 1)
 * in the __lib/bank_api_web/router.ex__
   - add the post
     ```elixir
@@ -40,6 +40,43 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 * create __lib/bank_api_web/controllers/user_controller.ex__
   - add
   ```elixir
+  defmodule BankApiWeb.UserController do
+    use BankApiWeb, :controller
 
+    # An action is a regular function that receives
+    # the connection and the request parameters as arguments.
+    # The connection is a Plug.Conn struct, as specified by the Plug library.
+
+    # IO.inspect request_params
+    # %{
+    #   "user" => %{
+    #     "email" => "maiquitome@gmail.com",
+    #     "first_name" => "Maiqui",
+    #     "last_name" => "Tomé",
+    #     "password" => "123456",
+    #     "password_confirmation" => "123456"
+    #   }
+    # }
+    def signup(conn, %{"user" => user}) do
+      # render(conn, "user.json", %{user: user})
+      conn
+      |> put_status(:created)
+      |> render("user.json", %{user: user})
+
+      # IO.inspect conn
+      # IO.puts "+++++++++"
+      # IO.inspect user
+    end
+  end
   ```
 * create __lib/bank_api_web/views/user_view.ex__
+  - add the code
+  ```elixir
+  defmodule BankApiWeb.UserView do
+    use BankApiWeb, :view
+
+    def render("user.json", %{user: user}) do
+      user
+    end
+  end
+  ```
