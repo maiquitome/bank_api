@@ -27,3 +27,19 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 ```bash
   $ mix ecto.create
 ```
+### Creating the first route
+* in the __lib/bank_api_web/router.ex__
+  - add the post
+    ```elixir
+    scope "/api", BankApiWeb do
+      pipe_through :api
+
+      post "/auth/signup", UserController, :signup
+    end
+    ```
+* create __lib/bank_api_web/controllers/user_controller.ex__
+  - add
+  ```elixir
+
+  ```
+* create __lib/bank_api_web/views/user_view.ex__
