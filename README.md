@@ -27,7 +27,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 ```bash
   $ mix ecto.create
 ```
-### Creating the first route (video 1)
+## Creating the first route (video 1)
 * in the __lib/bank_api_web/router.ex__
   - add the post
     ```elixir
@@ -80,7 +80,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
       end
     end
     ```
-### Creating our migration and schema (video 2)
+## Creating our migration and schema (video 2)
 * in the __mix.exs__
   - add the dependencies
     ```elixir
