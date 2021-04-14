@@ -9,3 +9,4 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+# BankApi.Accounts.User.changeset %{email: "MAIQUITOME@GMAIL.COM", first_name: "Maiqui", last_name: "Tomé", password: "123456", password_confirmation: "123456"}
