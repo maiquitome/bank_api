@@ -1,5 +1,6 @@
 defmodule BankApiWeb.UserController do
   use BankApiWeb, :controller
+  alias BankApi.Accounts
 
   # An action is a regular function that receives
   # the connection and the request parameters as arguments.
@@ -17,9 +18,11 @@ defmodule BankApiWeb.UserController do
   # }
   def signup(conn, %{"user" => user}) do
     # render(conn, "user.json", %{user: user})
+
+    {:ok, account} = Accounts.create_user(user)
     conn
     |> put_status(:created)
-    |> render("user.json", %{user: user})
+    |> render("account.json", %{account: account})
 
     # IO.inspect conn
     # IO.puts "+++++++++"
